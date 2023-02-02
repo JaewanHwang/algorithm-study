@@ -5,7 +5,7 @@ sys.stdin = open('jh_input.txt')
 obstacle = ['#', 'R', 'B', '1', '2']
 
 
-def rollingup(location,signal):
+def rollingup(location, signal):
     stop = False
     rstop = False
     bstop = False
@@ -22,11 +22,12 @@ def rollingup(location,signal):
                         rstop = True
                     elif location[i - 1][j] == '0':
                         rgoal = True
-                        location[i][j] == '.'
+                        location[i][j] = '.'
                         location[i - 1][j] = '1'  # 0을 지나가고 있는 R인 경우 1로 표시
                     else:
-                        location[i][j] == '.'
+                        location[i][j] = '.'
                         location[i - 1][j] = 'R'
+
 
                 if location[i][j] == '1':
                     if location[i - 1][j] in obstacle:
@@ -34,7 +35,7 @@ def rollingup(location,signal):
                     elif location[i - 1][j] == 'B':
                         rstop = True
                     else:
-                        location[i][j] == '0'
+                        location[i][j] = '0'
                         location[i - 1][j] = 'R'
 
                 if location[i][j] == 'B':
@@ -44,10 +45,10 @@ def rollingup(location,signal):
                         bstop = True
                     elif location[i - 1][j] == '0':
                         bgoal = True
-                        location[i][j] == '.'
+                        location[i][j] = '.'
                         location[i - 1][j] = '2'  # 0을 지나가고 있는 B인 경우 2로 표시
                     else:
-                        location[i][j] == '.'
+                        location[i][j] = '.'
                         location[i - 1][j] = 'B'
 
                 if location[i][j] == '2':
@@ -56,7 +57,7 @@ def rollingup(location,signal):
                     elif location[i - 1][j] == 'R':
                         bstop = True
                     else:
-                        location[i][j] == '0'
+                        location[i][j] = '0'
                         location[i - 1][j] = 'B'
                 if rstop and bstop == True:
                     stop = True
@@ -85,10 +86,11 @@ def rollingdown(location, signal):
                         rstop = True
                     elif location[i + 1][j] == '0':
                         rgoal = True
-                        location[i][j] == '.'
+
+                        location[i][j] = '.'
                         location[i + 1][j] = '1'  # 0을 지나가고 있는 R인 경우 1로 표시
                     else:
-                        location[i][j] == '.'
+                        location[i][j] = '.'
                         location[i + 1][j] = 'R'
 
                 if location[i][j] == '1':
@@ -97,7 +99,7 @@ def rollingdown(location, signal):
                     elif location[i + 1][j] == 'B':
                         rstop = True
                     else:
-                        location[i][j] == '0'
+                        location[i][j] = '0'
                         location[i + 1][j] = 'R'
 
                 if location[i][j] == 'B':
@@ -107,10 +109,10 @@ def rollingdown(location, signal):
                         bstop = True
                     elif location[i + 1][j] == '0':
                         bgoal = True
-                        location[i][j] == '.'
+                        location[i][j] = '.'
                         location[i + 1][j] = '2'  # 0을 지나가고 있는 B인 경우 2로 표시
                     else:
-                        location[i][j] == '.'
+                        location[i][j] = '.'
                         location[i + 1][j] = 'B'
 
                 if location[i][j] == '2':
@@ -119,7 +121,7 @@ def rollingdown(location, signal):
                     elif location[i + 1][j] == 'R':
                         bstop = True
                     else:
-                        location[i][j] == '0'
+                        location[i][j] = '0'
                         location[i + 1][j] = 'B'
                 if rstop and bstop == True:
                     stop = True
@@ -131,7 +133,7 @@ def rollingdown(location, signal):
     return location, signal
 
 
-def rollingleft(location,signal):
+def rollingleft(location, signal):
     stop = False
     rstop = False
     bstop = False
@@ -148,10 +150,10 @@ def rollingleft(location,signal):
                         rstop = True
                     elif location[i][j - 1] == '0':
                         rgoal = True
-                        location[i][j] == '.'
+                        location[i][j] = '.'
                         location[i][j - 1] = '1'  # 0을 지나가고 있는 R인 경우 1로 표시
                     else:
-                        location[i][j] == '.'
+                        location[i][j] = '.'
                         location[i][j - 1] = 'R'
 
                 if location[i][j] == '1':
@@ -160,7 +162,7 @@ def rollingleft(location,signal):
                     elif location[i][j - 1] == 'B':
                         rstop = True
                     else:
-                        location[i][j] == '0'
+                        location[i][j] = '0'
                         location[i][j - 1] = 'R'
 
                 if location[i][j] == 'B':
@@ -170,10 +172,10 @@ def rollingleft(location,signal):
                         bstop = True
                     elif location[i][j - 1] == '0':
                         bgoal = True
-                        location[i][j] == '.'
+                        location[i][j] = '.'
                         location[i][j - 1] = '2'  # 0을 지나가고 있는 B인 경우 2로 표시
                     else:
-                        location[i][j] == '.'
+                        location[i][j] = '.'
                         location[i][j - 1] = 'B'
 
                 if location[i][j] == '2':
@@ -182,7 +184,7 @@ def rollingleft(location,signal):
                     elif location[i][j - 1] == 'R':
                         bstop = True
                     else:
-                        location[i][j] == '0'
+                        location[i][j] = '0'
                         location[i][j - 1] = 'B'
                 if rstop and bstop == True:
                     stop = True
@@ -194,7 +196,7 @@ def rollingleft(location,signal):
     return location, signal
 
 
-def rollingright(location,signal):
+def rollingright(location, signal):
     stop = False
     rstop = False
     bstop = False
@@ -207,14 +209,18 @@ def rollingright(location,signal):
                 if location[i][j] == 'R':
                     if location[i][j + 1] in obstacle:
                         rstop = True
+
                     elif location[i][j + 1] == 'B':
                         rstop = True
+
                     elif location[i][j + 1] == '0':
+
                         rgoal = True
-                        location[i][j] == '.'
+                        location[i][j] = '.'
                         location[i][j + 1] = '1'  # 0을 지나가고 있는 R인 경우 1로 표시
+
                     else:
-                        location[i][j] == '.'
+                        location[i][j] = '.'
                         location[i][j + 1] = 'R'
 
                 if location[i][j] == '1':
@@ -223,7 +229,7 @@ def rollingright(location,signal):
                     elif location[i][j + 1] == 'B':
                         rstop = True
                     else:
-                        location[i][j] == '0'
+                        location[i][j] = '0'
                         location[i][j + 1] = 'R'
 
                 if location[i][j] == 'B':
@@ -233,10 +239,10 @@ def rollingright(location,signal):
                         bstop = True
                     elif location[i][j + 1] == '0':
                         bgoal = True
-                        location[i][j] == '.'
+                        location[i][j] = '.'
                         location[i][j + 1] = '2'  # 0을 지나가고 있는 B인 경우 2로 표시
                     else:
-                        location[i][j] == '.'
+                        location[i][j] = '.'
                         location[i][j + 1] = 'B'
 
                 if location[i][j] == '2':
@@ -245,14 +251,16 @@ def rollingright(location,signal):
                     elif location[i][j + 1] == 'R':
                         bstop = True
                     else:
-                        location[i][j] == '0'
+                        location[i][j] = '0'
                         location[i][j + 1] = 'B'
                 if rstop and bstop == True:
                     stop = True
     if bgoal == True:  # 파란공이 goal에 들어가면 signal은 2
         signal = 2
+        print(2)
     elif rgoal == True:  # 파란공이 들어가지 않고 빨간공이 들어가면 signal은 1
         signal = 1
+        print(1)
 
     return location, signal
 
@@ -288,7 +296,7 @@ def beedescape(progress, direction, count):
                     answer = count
         elif direction == 'left':
             status = 0
-            progress = rollingleft(progress, status)
+            progress, status = rollingleft(progress, status)
             if status == 0:
                 beedescape(progress, 'up', count + 1)
                 beedescape(progress, 'down', count + 1)
@@ -301,7 +309,7 @@ def beedescape(progress, direction, count):
 
         elif direction == 'right':
             status = 0
-            progress = rollingright(progress, status)
+            progress, status = rollingright(progress, status)
             if status == 0:
                 beedescape(progress, 'up', count + 1)
                 beedescape(progress, 'down', count + 1)
