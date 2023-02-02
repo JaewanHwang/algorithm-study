@@ -6,7 +6,7 @@ def solution(N, stages):
     for stage in stages:
         not_clear[stage] += 1
 
-    visit[N + 1] = not_cl화r[N + 1]
+    visit[N + 1] = not_clear[N + 1]
     for stage in range(N, 0, -1):
         visit[stage] = visit[stage + 1] + not_clear[stage]
 
