@@ -1,3 +1,4 @@
+# 풀이1
 from functools import reduce
 
 ans = set()
@@ -31,4 +32,28 @@ def solution(user_id, banned_id):
     for uid in dictionary:
         go(0, '', uid)
     go2(0, banned_id)
+    return len(ans)
+
+
+# --------------------------------------------------
+# 풀이2
+'''
+permutations와 re를 이용한 간단 풀이
+'''
+from itertools import permutations
+import re
+
+
+def solution(user_id, banned_id):
+    ans = set()
+    for i, bid in enumerate(banned_id):
+        banned_id[i] = bid.replace('*', '.')
+    print(banned_id)
+    for perm in permutations(range(len(user_id)), r=len(banned_id)):
+        for i, uid in enumerate(perm):
+            if len(banned_id[i]) != len(user_id[uid]) or not re.match(banned_id[i], user_id[uid]):
+                break
+        else:
+            ans.add(tuple(sorted(perm)))
+    print(ans)
     return len(ans)
