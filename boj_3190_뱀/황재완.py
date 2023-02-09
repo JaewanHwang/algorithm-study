@@ -40,7 +40,6 @@ while True:
         ms[tsx][tsy] = False
         s.append((sx, sy, sd))
         ms[sx][sy] = True
-
 ans = sec
 print(ans)
 
