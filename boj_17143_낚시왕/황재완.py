@@ -47,6 +47,8 @@ for c in range(C):
     m = tm
 print(ans)
 
+#-------------------------------------
+
 # 풀이2
 import sys
 
