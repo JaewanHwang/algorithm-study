@@ -22,6 +22,7 @@ def solution(play_time, adv_time, logs):
 
     hh, rest = divmod(max_s, 60 * 60)
     mm, ss = divmod(rest, 60)
-    ans = str(hh).zfill(2) + ':' + str(mm).zfill(2) + ':' + str(ss).zfill(2)
+    ans = f'{hh:02}:{mm:02}:{ss:02}'
+    # ans = str(hh).zfill(2) + ':' + str(mm).zfill(2) + ':' + str(ss).zfill(2)
 
     return ans
