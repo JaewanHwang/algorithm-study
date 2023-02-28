@@ -62,6 +62,7 @@ def solution(words):
             if char not in cur.children:
                 cur.children[char] = Node()
             cur = cur.children[char]
+
             cur.promising += 1
         cur.word = word
 
