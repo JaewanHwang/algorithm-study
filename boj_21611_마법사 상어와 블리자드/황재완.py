@@ -60,7 +60,7 @@ def simulate(di, si):
         ol = len(q)
         while q:
             num = q.popleft()
-            if not stack or stack[-1] != num or not q:
+            if not stack or stack[-1] != num:
                 if cnt >= 4:
                     for _ in range(cnt):
                         ans[stack.pop()] += 1
@@ -69,6 +69,9 @@ def simulate(di, si):
             elif stack[-1] == num:
                 stack.append(num)
                 cnt += 1
+        if cnt >= 4:
+            for _ in range(cnt):
+                ans[stack.pop()] += 1
         if ol == len(stack):
             # 3. 구슬 변형
             q = deque()
