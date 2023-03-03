@@ -1,3 +1,4 @@
+# 풀이 1: BFS + 그리기 + 역추적 기법
 from collections import deque
 
 dx, dy = (1, 0, 0, -1), (0, -1, 1, 0)
@@ -33,3 +34,5 @@ def solution(n, m, x, y, r, c, k):
         dist -= 1
 
     return ans[::-1]
+
+# 풀이 2: DFS + 그리디
