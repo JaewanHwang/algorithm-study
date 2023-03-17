@@ -40,25 +40,19 @@ def solution(edges, target):
         else:
             break
 
-    sum_map = [[0] * 101 for _ in range(101)]
-    for one_cnt in range(101):
-        for two_cnt in range(51):
-            for three_cnt in range(34):
-                tot_sum = one_cnt + two_cnt * 2 + three_cnt * 3
-                tot_cnt = one_cnt + two_cnt + three_cnt
-                if tot_sum <= 100:
-                    if not sum_map[tot_cnt][tot_sum] or sum_map[tot_cnt][tot_sum] < (one_cnt, two_cnt, three_cnt):
-                        sum_map[tot_cnt][tot_sum] = (one_cnt, two_cnt, three_cnt)
-
     ans = [0] * (k + 1)
     for leaf_node in counter_leaf_node:
-        if counter_leaf_node[leaf_node]:
-            now_best = sum_map[len(counter_leaf_node[leaf_node])][target[leaf_node - 1]]
-        else:
-            continue
-        now_best = [1] * now_best[0] + [2] * now_best[1] + [3] * now_best[2]
-        for ni, ai in enumerate(counter_leaf_node[leaf_node]):
-            ans[ai] = now_best[ni]
+        remain = len(counter_leaf_node[leaf_node])
+        for ai in counter_leaf_node[leaf_node]:
+            if 3 * (remain - 1) + 1 >= target[leaf_node - 1]:
+                ans[ai] = 1
+            else:
+                if 3 * remain - 1 == target[leaf_node - 1]:
+                    ans[ai] = 2
+                else:
+                    ans[ai] = 3
+            remain -= 1
+            target[leaf_node - 1] -= ans[ai]
     return ans
 
 
