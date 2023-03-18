@@ -23,12 +23,13 @@ def evaluate(m):
 
 
 def ok(case):
-    tm = [row[:] for row in m]
     for flag in range(2 ** len(case)):
         for i in range(len(case)):
-            tm[case[i]] = [1 if flag & 1 << i else 0] * W
-        if evaluate(tm):
+            m[case[i]] = b_film if flag & 1 << i else a_film
+        if evaluate(m):
             return True
+    for l in case:
+        m[l] = original_m[l]
     return False
 
 
@@ -36,6 +37,8 @@ T = int(input())
 for test_case in range(1, T + 1):
     D, W, K = map(int, input().split())
     m = [list(map(int, input().split())) for _ in range(D)]
+    original_m = [row[:] for row in m]
+    a_film, b_film = [0] * W, [1] * W
     for ans in range(D):
         for case in combinations(range(D), r=ans):
             if ok(case):
