@@ -1,6 +1,6 @@
 import sys
 
-sys.stdin = open('input.txt')
+sys.stdin = open('../boj_14499_주사위 굴리기/input.txt')
 input = sys.stdin.readline
 
 operations = list(map(int, input().split()))
