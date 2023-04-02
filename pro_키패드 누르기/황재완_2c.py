@@ -29,3 +29,4 @@ def solution(numbers, hand):
                 else:
                     r = number
     return ''.join(ans)
+
