@@ -1,6 +1,6 @@
 import sys
 
-sys.stdin = open("sample_input.txt", "r")
+sys.stdin = open("input.txt", "r")
 dx, dy = (-1, 0, 0, 1), (0, -1, 1, 0)
 dir_map = {1: {3: 2, 1: 0},
            2: {1: 3, 0: 2},

@@ -1,7 +1,7 @@
 import sys
 from itertools import product
 
-sys.stdin = open("sample_input.txt", "r")
+sys.stdin = open("input.txt", "r")
 dx, dy = (1, 1, -1, -1), (1, -1, -1, 1)
 
 

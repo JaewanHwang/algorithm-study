@@ -1,7 +1,7 @@
 import sys
 
 sys.setrecursionlimit(10 ** 6)
-sys.stdin = open("sample_input.txt", "r")
+sys.stdin = open("input.txt", "r")
 dx, dy = (-1, 1, 0, 0), (0, 0, -1, 1)
 
 
