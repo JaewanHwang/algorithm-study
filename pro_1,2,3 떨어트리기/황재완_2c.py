@@ -29,7 +29,7 @@ def solution(edges, target):
             if target[i] > 3 * len(cnt[i]):
                 ok = False
                 break
-            elif cnt[i] and target[i] < len(cnt[i]):
+            elif target[i] < len(cnt[i]):
                 return [-1]
         if ok:
             break
