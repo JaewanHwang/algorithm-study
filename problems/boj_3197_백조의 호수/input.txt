@@ -1,11 +1,11 @@
 10 2
 .L
+..
+XX
+XX
+XX
+XX
+XX
+XX
+..
 .L
-XX
-XX
-XX
-XX
-XX
-XX
-..
-..
